@@ -89,7 +89,6 @@ export default {
       })
       this.photos = photos.results
       this.status = this.statuses.SUCCESS
-      console.log(photos.results)
     } catch (err) {
       this.error=err.message
       this.status = this.statuses.ERROR
