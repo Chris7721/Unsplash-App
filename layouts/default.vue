@@ -67,6 +67,7 @@ export default {
             box-sizing: border-box;
             outline: 0;
             transition: box-shadow .1s;
+            color: #263958;
 
             &:focus{
               -webkit-box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.08);

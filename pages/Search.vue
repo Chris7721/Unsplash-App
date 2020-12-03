@@ -15,25 +15,24 @@
                 </template>
                 
                 
-                <template v-else-if="status === statuses.SUCCESS">
-                    <template v-if="photos.length > 0">
-                        <template v-for="(photo, index) in photos">
-                            <AppCard :key="index" :photo="photo" />
-                        </template>
-                    </template>
-
-                    <template v-else>
-                        <div class="error">
-                            <div class="msg">
-                                <h2>No result found for <span>{{ query }} </span><span role="img" aria-label="sad face">😐</span></h2>
-                                <nuxt-link to="/">Back to homepage</nuxt-link>
-                            </div>
-                        </div>
-                    </template>                
+                <template v-else-if="status === statuses.SUCCESS && photos.length > 0">
+                    <template v-for="(photo, index) in photos">
+                        <AppCard :key="index" :photo="photo" />
+                    </template>                                   
                 </template>
                 
             </div>
-            <template v-else>
+
+            <template v-if="status === statuses.SUCCESS && photos.length < 1">
+                <div class="error">
+                    <div class="msg">
+                        <h2>No result found for <span>{{ query }} </span><span role="img" aria-label="sad face">😐</span></h2>
+                        <nuxt-link to="/">Back to homepage</nuxt-link>
+                    </div>
+                </div>
+            </template>
+            
+            <template v-if="status == statuses.ERROR">
                 <div class="error">
                         <div class="msg">
                             <h2>{{ error }} <span role="img" aria-label="sad face">😐</span></h2>

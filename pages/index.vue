@@ -29,20 +29,10 @@
                     <template v-for="(photo, index) in photos">
                         <AppCard :key="index" :photo="photo" />
                     </template>
-                </template>
-
-                <template v-else>
-                    <div class="error">
-                        <div class="msg">
-                            <h2>No result was found for <span>{{ query }}</span></h2>
-                        </div>
-                    </div>
-                </template>
-
-                
+                </template>                
             </template>            
         </div>
-        <template v-else>
+        <template v-if="status == statuses.ERROR">
           <div class="error">
               <div class="msg">
                   <h2>{{ error }} <span role="img" aria-label="sad face">😐</span></h2>
